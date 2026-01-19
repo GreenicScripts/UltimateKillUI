@@ -1,6 +1,11 @@
+--========================================================--
 -- LocalPlayer UI Reset Script
--- Does NOT affect other players
--- Safe GUI utility
+-- Safe GUI Utility (Client-Side Only)
+-- Does NOT affect other players in any way
+-- All actions (Reset, UI, Sounds) run ONLY for the user
+-- Designed for universal executors and full compatibility
+-- Made by Grennic
+--========================================================--
 
 --// Ultimate Kill UI by Grennic + Copilot
 local Players = game:GetService("Players")
@@ -79,12 +84,12 @@ local function makeDraggable(frame)
     end)
 end
 
---// Kill Button
+--// RESET Button
 local btn = Instance.new("TextButton")
 btn.Size = UDim2.new(0,160,0,50)
 btn.Position = UDim2.new(0.5,-80,0.8,0)
 btn.BackgroundColor3 = Color3.fromRGB(20,20,20)
-btn.Text = "KILL ME"
+btn.Text = "RESET" -- UPDATED TEXT
 btn.TextColor3 = Color3.new(1,1,1)
 btn.Font = Enum.Font.GothamBold
 btn.TextSize = 20
@@ -109,7 +114,7 @@ task.spawn(function()
     end
 end)
 
---// ⭐ UPDATED HOVER SOUND (92876108656319)
+--// Hover Sound + Animation
 btn.MouseEnter:Connect(function()
     playSound(92876108656319, 0.9)
     TweenService:Create(btn, TweenInfo.new(0.15), {Size = UDim2.new(0,170,0,55)}):Play()
